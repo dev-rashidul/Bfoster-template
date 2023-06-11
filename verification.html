@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Template</title>
+
+    <!-- Custom Style -->
+    <style>
+      /* Font */
+      @font-face {
+        font-family: Verdana;
+        src: url(./font/verdana.ttf);
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: Verdana;
+        src: url(./font/verdana-bold.ttf);
+        font-weight: 700;
+      }
+
+      .email-container {
+        position: relative;
+        overflow: hidden;
+        padding: 25px 20px 0;
+        border-radius: 20px;
+      }
+
+      .email-container::after {
+        position: absolute;
+        content: "";
+        top: 100px;
+        left: 0;
+        max-width: 500px;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          126.73deg,
+          rgba(245, 74, 74, 0.3432) 32.62%,
+          rgba(255, 239, 98, 0.3432) 73.92%
+        );
+        filter: blur(150px);
+        border-radius: 20px;
+      }
+
+      .verification-wrapper {
+        position: relative;
+        text-align: center;
+        padding: 25px 25px 50px;
+        margin-top: 15px;
+        background: #ffffff;
+        box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+        border-radius: 10px 10px 20px 20px;
+        z-index: 2;
+      }
+
+      .verification-content h4 {
+        font-size: 24px;
+        line-height: 120%;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #120f0f;
+        margin: 15px 0;
+      }
+
+      .verification-content h6 {
+        font-size: 16px;
+        font-weight: 400;
+        line-height: 120%;
+        text-align: center;
+        letter-spacing: -0.02em;
+        color: #120f0f;
+        margin: 0;
+      }
+
+      .verify-btn a {
+        display: block;
+        max-width: 360px;
+        width: 100%;
+        margin: auto;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: #ffffff;
+        background: #f54a4a;
+        padding: 20px;
+        border-radius: 100px;
+      }
+
+      .verification-content p {
+        font-size: 12px;
+        line-height: 120%;
+        text-align: left;
+        color: #7e6a6a;
+        margin: 0;
+        padding-top: 25px;
+      }
+
+      .footer-social ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-social ul li {
+        list-style: none;
+        padding: 0 15px;
+      }
+
+      .footer-content {
+        max-width: 400px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .footer-content p,
+      .footer-content p a {
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: #5a4c4c;
+      }
+
+      .footer-content span {
+        font-size: 12px;
+        line-height: 24px;
+        color: #5a4c4c;
+      }
+
+      /* ===========***===========
+      Responsive for Mobile
+      ===========***=========== */
+
+      @media (min-width: 414px) and (max-width: 575px) {
+        .email-container {
+          max-width: 414px !important;
+          width: 100% !important;
+        }
+
+        .verification-content h4 {
+          font-size: 20px;
+        }
+
+        .verification-content h6 {
+          font-size: 14px;
+          line-height: 140%;
+        }
+
+        .verify-btn a {
+          max-width: 220px;
+        }
+
+        .verification-content p {
+          line-height: 150%;
+        }
+      }
+
+      @media (min-width: 375px) and (max-width: 413px) {
+        .email-container {
+          max-width: 375px !important;
+          width: 100% !important;
+        }
+
+        .verification-content h4 {
+          font-size: 20px;
+        }
+
+        .verification-content h6 {
+          font-size: 14px;
+          line-height: 140%;
+        }
+
+        .verify-btn a {
+          max-width: 220px;
+        }
+
+        .verification-content p {
+          line-height: 150%;
+        }
+      }
+
+      @media (min-width: 300px) and (max-width: 374px) {
+        .email-container {
+          max-width: 320px !important;
+          width: 100% !important;
+        }
+
+        .verification-content h4 {
+          font-size: 20px;
+        }
+
+        .verification-content h6 {
+          font-size: 14px;
+          line-height: 140%;
+        }
+
+        .verify-btn a {
+          max-width: 220px;
+        }
+
+        .verification-content p {
+          line-height: 150%;
+        }
+      }
+    </style>
+  </head>
+  <body
+    width="100%"
+    style="margin: 0; padding: 0 !important; font-family: Verdana"
+  >
+    <center style="width: 100%">
+      <div
+        style="max-width: 600px; width: 100%; margin: 0 auto"
+        class="email-container"
+      >
+        <!-- Header Section HTML Start -->
+
+        <table
+          align="center"
+          role="presentation"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="100%"
+          style="margin: auto"
+        >
+          <tr>
+            <td>
+              <div class="logo" style="text-align: center">
+                <a href="#"><img src="images/logo.svg" alt="logo" /></a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Header Section HTML End -->
+
+        <!-- Email Verfication Section HTML Start -->
+
+        <table
+          align="center"
+          role="presentation"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="100%"
+          style="margin: auto"
+        >
+          <tr>
+            <td>
+              <div class="verification-wrapper">
+                <div class="verification-icon">
+                  <img
+                    src="images/verification-logo.svg"
+                    alt="verification-logo"
+                  />
+                </div>
+                <div class="verification-content">
+                  <h4>Hi, Jastin!</h4>
+                  <h6>
+                    To complete email verification, please press the button
+                    below.
+                  </h6>
+                  <div class="verify-btn" style="padding-top: 25px">
+                    <a href="#">Verify your email</a>
+                  </div>
+                  <p>
+                    Ut enim ad minima veniam, quis nostrum exercitationem ullam
+                    corporis suscipit laboriosam, nisi ut al
+                  </p>
+                </div>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Email Verfication Section HTML End -->
+
+        <!-- Footer Section HTML Start -->
+
+        <table
+          align="center"
+          role="presentation"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="100%"
+          style="margin: auto"
+        >
+          <tr>
+            <td style="position: relative; padding: 25px 0; z-index: 2">
+              <div class="footer-social">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><img src="images/twitter-icon.svg" alt="twitter-icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img src="images/facebook-icon.svg" alt="facebook-icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img
+                        src="images/instagram-icon.svg"
+                        alt="instagram-icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img src="images/github-icon.svg" alt="github-icon"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-content">
+                <p>
+                  You elected to receive Notification emails. No longer
+                  interested? <a href="#">Unsubscribe</a> or
+                  <a href="#">manage your subscriptions</a>.
+                </p>
+                <span>© Copyright 2023, All Rights Reserved</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Footer Section HTML End -->
+      </div>
+    </center>
+  </body>
+</html>
