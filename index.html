@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Email Template</title>
+
+    <!-- Custom Style -->
+    <style>
+      /* Font */
+      @font-face {
+        font-family: Verdana;
+        src: url(./font/verdana.ttf);
+        font-weight: 400;
+      }
+
+      @font-face {
+        font-family: Verdana;
+        src: url(./font/verdana-bold.ttf);
+        font-weight: 700;
+      }
+
+      .email-container {
+        position: relative;
+        overflow: hidden;
+        padding: 25px 20px 0;
+      }
+
+      .email-container::after {
+        position: absolute;
+        content: "";
+        top: 100px;
+        left: 0;
+        max-width: 500px;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          126.73deg,
+          rgba(245, 74, 74, 0.3432) 32.62%,
+          rgba(255, 239, 98, 0.3432) 73.92%
+        );
+        filter: blur(150px);
+      }
+
+      .hero-wrapper::after {
+        position: absolute;
+        content: "";
+        top: 0;
+        left: 0;
+        width: 100%;
+        min-height: 280px;
+        max-height: 280px;
+        height: 100%;
+        background: linear-gradient(
+          180deg,
+          #212121 10%,
+          rgba(33, 33, 33, 0) 57.14%
+        );
+        border-radius: 20px 20px 0px 0px;
+        z-index: 1;
+      }
+
+      .hero-content h4 {
+        font-size: 24px;
+        color: #ffffff;
+        margin: 0;
+      }
+
+      .hero-content h4 span {
+        color: #f32424;
+      }
+
+      .hero-content p {
+        max-width: 300px;
+        margin: auto;
+        font-size: 16px;
+        color: #ffffff;
+        padding-top: 10px;
+      }
+
+      .hero-bottom p {
+        font-size: 14px;
+        line-height: 20px;
+        text-align: center;
+        color: #5a4c4c;
+        padding: 20px;
+        margin: 0;
+      }
+
+      .features-top {
+        position: relative;
+        max-width: 300px;
+        width: 100%;
+        margin: 10px auto 30px;
+      }
+
+      .features-top-shape {
+        position: absolute;
+        top: 25px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .features-top h6 {
+        font-size: 14px;
+        font-weight: 700;
+        color: #5a4c4c;
+        margin: 0;
+      }
+
+      .features-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .features-img,
+      .features-content {
+        max-width: 50%;
+        width: 100%;
+      }
+
+      .features-content h5 {
+        font-size: 18px;
+        font-weight: 700;
+        line-height: 100%;
+        text-align: left;
+        color: #120f0f;
+        margin: 0;
+        padding-bottom: 20px;
+      }
+
+      .features-content p {
+        font-size: 12px;
+        line-height: 18px;
+        text-align: left;
+        color: #7e6a6a;
+        margin: 0;
+        padding-right: 20px;
+      }
+
+      .start-btn a {
+        display: block;
+        max-width: 360px;
+        width: 100%;
+        margin: auto;
+        font-size: 16px;
+        line-height: 24px;
+        text-align: center;
+        text-decoration: none;
+        text-transform: capitalize;
+        color: #ffffff;
+        background: #f54a4a;
+        padding: 20px;
+        border-radius: 100px;
+      }
+
+      .features-bottom p {
+        font-size: 12px;
+        line-height: 120%;
+        color: #7e6a6a;
+        padding: 20px 25px;
+        margin: 0;
+      }
+
+      .download-wrapper {
+        text-align: center;
+      }
+
+      .download-wrapper h5 {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 17px;
+        color: #120f0f;
+        margin: 0;
+      }
+
+      .download-wrapper h5 span {
+        font-weight: 700;
+      }
+
+      .download-logos {
+        padding-top: 20px;
+      }
+
+      .footer-social ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+      }
+
+      .footer-social ul li {
+        list-style: none;
+        padding: 0 15px;
+      }
+
+      .footer-content {
+        max-width: 400px;
+        margin: auto;
+        text-align: center;
+      }
+
+      .footer-content p,
+      .footer-content p a {
+        font-size: 12px;
+        line-height: 18px;
+        text-align: center;
+        color: #5a4c4c;
+      }
+
+      .footer-content span {
+        font-size: 12px;
+        line-height: 24px;
+        color: #5a4c4c;
+      }
+
+      /* ===========***===========
+      Responsive for Mobile
+      ===========***=========== */
+
+      @media only screen and (min-device-width: 320px) and (max-device-width: 374px) {
+        .email-container {
+          min-width: 320px !important;
+        }
+
+        .hero-content h4 {
+          font-size: 20px;
+        }
+
+        .hero-content p,
+        .hero-bottom p {
+          font-size: 14px;
+        }
+
+        .features-container {
+          flex-direction: column;
+        }
+
+        .features-container2 {
+          flex-direction: column-reverse;
+        }
+
+        .features-img,
+        .features-content {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .features-content {
+          padding-left: 0 !important;
+          padding-top: 10px;
+        }
+
+        .features-content h5 {
+          padding: 0 20px 25px;
+        }
+
+        .features-content p {
+          padding: 0 20px;
+        }
+
+        .start-btn a {
+          max-width: 250px;
+        }
+
+        .download-logos a img {
+          max-width: 40%;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (min-device-width: 375px) and (max-device-width: 413px) {
+        .email-container {
+          min-width: 375px !important;
+        }
+
+        .hero-content h4 {
+          font-size: 20px;
+        }
+
+        .hero-content p,
+        .hero-bottom p {
+          font-size: 14px;
+        }
+
+        .features-container {
+          flex-direction: column;
+        }
+
+        .features-img,
+        .features-content {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .features-content {
+          padding-left: 0 !important;
+          padding-top: 10px;
+        }
+
+        .features-content h5 {
+          padding: 0 20px 25px;
+        }
+
+        .features-content p {
+          padding: 0 20px;
+        }
+
+        .start-btn a {
+          max-width: 250px;
+        }
+
+        .download-logos a img {
+          max-width: 40%;
+          width: 100%;
+        }
+      }
+
+      @media only screen and (min-device-width: 414px) and (max-device-width: 575px) {
+        .email-container {
+          min-width: 414px !important;
+        }
+
+        .hero-content h4 {
+          font-size: 20px;
+        }
+
+        .hero-content p,
+        .hero-bottom p {
+          font-size: 14px;
+        }
+
+        .features-container {
+          flex-direction: column;
+        }
+
+        .features-img,
+        .features-content {
+          max-width: 100%;
+          width: 100%;
+        }
+
+        .features-content {
+          padding-left: 0 !important;
+          padding-top: 10px;
+        }
+
+        .features-content h5 {
+          padding: 0 20px 25px;
+        }
+
+        .features-content p {
+          padding: 0 20px;
+        }
+
+        .start-btn a {
+          max-width: 250px;
+        }
+
+        .download-logos a img {
+          max-width: 40%;
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body
+    width="100%"
+    style="margin: 0; padding: 0 !important; font-family: Verdana"
+  >
+    <center style="width: 100%">
+      <div
+        style="max-width: 600px; width: 100%; margin: 0 auto"
+        class="email-container"
+      >
+        <!-- Header Section HTML Start -->
+
+        <table
+          align="center"
+          role="presentation"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="100%"
+          style="margin: auto"
+        >
+          <tr>
+            <td>
+              <div class="logo" style="text-align: center">
+                <a href="#"><img src="images/logo.svg" alt="logo" /></a>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Header Section HTML End -->
+
+        <div
+          style="
+            position: relative;
+            background: #ffffff;
+            margin-top: 15px;
+            padding-bottom: 48px;
+            border-radius: 20px;
+            z-index: 2;
+          "
+        >
+          <!-- Hero Section HTML Start -->
+
+          <table
+            align="center"
+            role="presentation"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            width="100%"
+            style="margin: auto"
+          >
+            <tr>
+              <td>
+                <div
+                  class="hero-wrapper"
+                  style="
+                    position: relative;
+                    background: url(./images/banner.png);
+                    background-size: cover;
+                    background-repeat: no-repeat;
+                    min-height: 280px;
+                    max-height: 280px;
+                    height: 100%;
+                    border-radius: 20px 20px 0px 0px;
+                  "
+                >
+                  <div
+                    class="hero-content"
+                    style="
+                      position: relative;
+                      text-align: center;
+                      padding-top: 25px;
+                      z-index: 2;
+                    "
+                  >
+                    <h4>Welcome to <span>MyCrush</span></h4>
+                    <p>the dating app built by couples, for couples!</p>
+                  </div>
+                </div>
+                <div class="hero-bottom">
+                  <p>
+                    My Crush analyzes your interests, preferences, and
+                    personality traits to curate date ideas that suit you and
+                    your partner.
+                  </p>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Hero Section HTML End -->
+
+          <!-- Features Section HTML Start -->
+
+          <table
+            align="center"
+            role="presentation"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            width="100%"
+            style="margin: auto"
+          >
+            <div class="features-top">
+              <h6>See what you can do using our App:</h6>
+              <div class="features-top-shape">
+                <img
+                  src="images/features-top-shape.svg"
+                  alt="features-top-shape"
+                />
+              </div>
+            </div>
+            <div class="features-container" style="padding-top: 20px">
+              <div class="features-img">
+                <img src="images/features-img1.png" alt="features-img1" />
+              </div>
+              <div class="features-content">
+                <h5>Curated Dates</h5>
+                <p>
+                  Personalized date ideas based on your unique personality: My
+                  Crush analyzes your interests, preferences, and personality
+                  traits to curate date ideas that suit you and your partner.
+                  Whether you're into outdoor adventures, cozy indoor
+                  experiences, or something in between, My Crush has you
+                  covered.
+                </p>
+              </div>
+            </div>
+            <div
+              class="features-container features-container2"
+              style="padding-top: 20px"
+            >
+              <div class="features-content" style="padding-left: 70px">
+                <h5>Love Tanks 💋</h5>
+                <p>
+                  Introducing Love Tank - a revolutionary new feature that helps
+                  you keep your relationship on track. Our app allows you to
+                  check your partner's love tank level and receive personalized
+                  suggestions on how to fill it up. Set custom notifications to
+                  make sure you never miss a chance to show your love. With Love
+                  Tank, maintaining a healthy and happy relationship has never
+                  been easier.
+                </p>
+              </div>
+              <div class="features-img">
+                <img src="images/features-img2.png" alt="features-img2" />
+              </div>
+            </div>
+            <table>
+              <tr>
+                <td>
+                  <div class="features-bottom" style="padding-top: 50px">
+                    <div class="start-btn">
+                      <a href="#">Start now</a>
+                    </div>
+                    <p>
+                      Ut enim ad minima veniam, quis nostrum exercitationem
+                      ullam corporis suscipit laboriosam, nisi ut al
+                    </p>
+                  </div>
+                </td>
+              </tr>
+            </table>
+          </table>
+
+          <!-- Features Section HTML End -->
+
+          <!-- Download Section HTML Start -->
+
+          <table
+            align="center"
+            role="presentation"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            width="100%"
+            style="margin: auto"
+          >
+            <tr>
+              <td>
+                <div class="download-wrapper">
+                  <h5>Download <span>MyCrush</span> now!</h5>
+                  <div class="download-logos">
+                    <a href="#"
+                      ><img
+                        src="images/app-store-logo.svg"
+                        alt="app-store-logo"
+                    /></a>
+                    <a href="#"
+                      ><img
+                        src="images/play-store-logo.svg"
+                        alt="play-store-logo"
+                    /></a>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </table>
+
+          <!-- Download Section HTML End -->
+        </div>
+
+        <!-- Footer Section HTML Start -->
+
+        <table
+          align="center"
+          role="presentation"
+          cellspacing="0"
+          cellpadding="0"
+          border="0"
+          width="100%"
+          style="margin: auto"
+        >
+          <tr>
+            <td style="position: relative; padding: 25px 0; z-index: 2">
+              <div class="footer-social">
+                <ul>
+                  <li>
+                    <a href="#"
+                      ><img src="images/twitter-icon.svg" alt="twitter-icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img src="images/facebook-icon.svg" alt="facebook-icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img
+                        src="images/instagram-icon.svg"
+                        alt="instagram-icon"
+                    /></a>
+                  </li>
+                  <li>
+                    <a href="#"
+                      ><img src="images/github-icon.svg" alt="github-icon"
+                    /></a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-content">
+                <p>
+                  You elected to receive Notification emails. No longer
+                  interested? <a href="#">Unsubscribe</a> or
+                  <a href="#">manage your subscriptions</a>.
+                </p>
+                <span>© Copyright 2023, All Rights Reserved</span>
+              </div>
+            </td>
+          </tr>
+        </table>
+
+        <!-- Footer Section HTML End -->
+      </div>
+    </center>
+  </body>
+</html>
